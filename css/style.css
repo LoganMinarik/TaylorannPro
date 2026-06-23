@@ -15,6 +15,12 @@
   75% { transform: translateX(5px) rotate(1deg); }
 }
 
+@keyframes shake-soft {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-2px) rotate(-0.3deg); }
+  75% { transform: translateX(2px) rotate(0.3deg); }
+}
+
 @keyframes spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
@@ -85,6 +91,15 @@ body {
 .section:hover {
   animation: jiggle 0.2s infinite;
   border-color: #fff;
+}
+
+.section:active {
+  animation: jiggle 0.15s infinite;
+  border-color: #fff;
+}
+
+.section--shake {
+  animation: shake 0.4s !important;
 }
 
 .section::before {
@@ -513,11 +528,118 @@ body {
   z-index: 1;
 }
 
-/* RESPONSIVE */
-@media (max-width: 600px) {
-  .container { margin: 10px; }
-  #headshot h1 { font-size: 2.5em; }
-  .headshot-img { width: 150px; height: 150px; }
-  .skill-item { font-size: 1em; }
-  .contact-item { font-size: 1.2em; width: 100%; }
+/* RESPONSIVE — MOBILE */
+@media (max-width: 768px) {
+  body {
+    padding: 10px;
+  }
+
+  .container {
+    margin: 10px auto;
+    animation: shake-soft 8s infinite;
+  }
+
+  .section {
+    padding: 15px;
+    margin-bottom: 20px;
+    border-width: 4px;
+  }
+
+  #headshot {
+    border-radius: 30% 30% 0 0;
+  }
+
+  #headshot h1 {
+    font-size: 2.2em;
+    letter-spacing: 5px;
+  }
+
+  .headshot-img {
+    width: 140px;
+    height: 140px;
+    border-width: 5px;
+  }
+
+  .tagline {
+    font-size: 1.2em;
+    padding: 4px 14px;
+  }
+
+  #about h2 {
+    font-size: 2em;
+  }
+
+  #about p {
+    font-size: 1.1em;
+    padding: 10px;
+  }
+
+  #skills {
+    border-radius: 0 30px 0 30px;
+  }
+
+  #skills h2 {
+    font-size: 2.2em;
+  }
+
+  .skill-item {
+    font-size: 0.85em !important;
+    padding: 8px 14px;
+  }
+
+  .skills-grid {
+    gap: 6px;
+  }
+
+  .meter-label {
+    min-width: 90px;
+    font-size: 0.9em;
+  }
+
+  .meter-bar {
+    height: 22px;
+  }
+
+  #contact h2 {
+    font-size: 2em;
+  }
+
+  .contact-item {
+    font-size: 1em !important;
+    padding: 8px 14px;
+    width: 100%;
+  }
+
+  .banner {
+    font-size: 0.85em;
+    padding: 4px 0;
+    transform: rotate(-1deg);
+  }
+
+  .hit-counter {
+    font-size: 1em;
+    padding: 8px;
+  }
+
+  .floating-gif {
+    bottom: 10px;
+    right: 10px;
+    font-size: 2.5em;
+  }
+
+  .divider {
+    font-size: 1.4em;
+  }
+
+  .text-huge {
+    font-size: 2em;
+  }
+
+  .highlight {
+    font-size: 1.2em;
+  }
+
+  .cursor-trail {
+    display: none !important;
+  }
 }

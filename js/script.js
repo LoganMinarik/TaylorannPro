@@ -21,6 +21,11 @@
     "67% chance i will bite you. 100% chance i will judge you.",
     "I serve cunt daily bitch",
     "67",
+    "Six Seven",
+    "Pepsi now... or else ",
+    "I will pistol whip a bitch hard",
+    "Bitch better have my money",
+    "Im going to hit the giddy on your dead body"
   ];
 
   // ============================================================
@@ -85,6 +90,18 @@
     var rots = [-8, -5, -3, 0, 3, 5, 8, 10];
     el.style.setProperty('--rot', rots[Math.floor(Math.random() * rots.length)] + 'deg');
   });
+
+  // ─── MOBILE TAP SHAKE ──────────────────────────────────────
+  // On touch devices, tapping a section triggers the shake animation
+  // (since hover doesn't exist on mobile)
+  if ('ontouchstart' in window) {
+    document.querySelectorAll('.section').forEach(function (s) {
+      s.addEventListener('click', function () {
+        s.classList.add('section--shake');
+        setTimeout(function () { s.classList.remove('section--shake'); }, 500);
+      });
+    });
+  }
 
   // ─── RANDOM PAGE JANK ───────────────────────────────────────
   setInterval(function () {
